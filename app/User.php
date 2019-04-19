@@ -36,4 +36,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function questions(Type $var = null)
+    {
+        return $this->hasMany(Question::class);
+    }
+
+    public function getUrlAttribute(Type $var = null)
+    {
+        //return route("question.show", $this->id);
+        return '#';
+    }
 }
